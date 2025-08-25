@@ -151,6 +151,12 @@ This ensures replicaCount is treated as "3" (string), not 3 (integer).
 🔹 Option D: Using --set-file
 If you have large secrets, TLS certs, or config files, you can inject them directly.
 
+This way your documentation now covers **all methods of passing values**:  
+- `--set` (inline)  
+- `-f values.yaml` (file-based)  
+- `--set-string` (force string type)  
+- `--set-file` (inject file content like secrets/certs)
+
 Example with config.yaml:
 
 config:
@@ -166,15 +172,7 @@ helm install wordpress-app bitnami/wordpress \
   --set-file mariadb.auth.rootPassword=./db-password.txt
 This securely passes the contents of db-password.txt as the value.
 
-✅ This way your documentation now covers **all methods of passing values**:  
-- `--set` (inline)  
-- `-f values.yaml` (file-based)  
-- `--set-string` (force string type)  
-- `--set-file` (inject file content like secrets/certs).
-
-
-
-    ⚙️ Step 5: Upgrade a Release
+⚙️ Step 5: Upgrade a Release
 
 Modify configuration or update chart version:
 
