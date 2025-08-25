@@ -170,9 +170,7 @@ This securely passes the contents of db-password.txt as the value.
 - `--set` (inline)  
 - `-f values.yaml` (file-based)  
 - `--set-string` (force string type)  
-- `--set-file` (inject file content like secrets/certs)  
-
----
+- `--set-file` (inject file content like secrets/certs).
 
 ⚙️ Step 5: Upgrade a Release
 
