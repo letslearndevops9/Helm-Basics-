@@ -45,14 +45,6 @@ Thousands of pre-built charts available (e.g., WordPress, MySQL, NGINX, Promethe
 ✅ CI/CD Friendly
 Integrates well with GitOps and automation pipelines (ArgoCD, Flux, Jenkins, GitHub Actions).
 
-🚀 How to Use Helm (Quick Workflow)
-Install Helm
-curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
-Add a Chart Repository
-
-helm repo add bitnami https://charts.bitnami.com/bitnami
-helm repo update
-
 # 🚀 Helm Installation & Customization Guide
 
 This guide provides a **practical step-by-step workflow** for using Helm with Kubernetes:
