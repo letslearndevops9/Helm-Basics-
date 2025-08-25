@@ -20,7 +20,93 @@ Screenshots are provided from a real setup for clarity.
 Before starting, make sure you have:  
 - A Kubernetes cluster running (e.g., Minikube, AKS, EKS, GKE)  
 - `kubectl` installed and configured  
-- Internet access to fetch Helm charts  
+- Internet access to fetch Helm charts 
+
+## ⚙️ Step 0: Install Minikube (Kubernetes Cluster Setup)
+
+Before using Helm, you need a running Kubernetes cluster.  
+[Minikube](https://minikube.sigs.k8s.io/docs/start/) is the easiest way to create a local cluster for testing.  
+
+---
+
+### 🔹 Install Minikube on Linux
+
+1. Download Minikube binary:
+```bash
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+Install to /usr/local/bin:
+
+bash
+Copy
+Edit
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+Start a cluster:
+
+bash
+Copy
+Edit
+minikube start --driver=docker
+Verify:
+
+bash
+Copy
+Edit
+kubectl get nodes
+📌 By default, Minikube uses Docker as the driver, but you can also use VirtualBox, KVM, or others.
+
+🔹 Install Minikube on Windows
+Download the Minikube installer:
+
+Minikube Windows Installer (.exe)
+
+Run the installer (it will add minikube.exe to your PATH).
+
+Start a cluster from PowerShell (Run as Administrator):
+
+powershell
+Copy
+Edit
+minikube start --driver=docker
+Verify:
+
+powershell
+Copy
+Edit
+kubectl get nodes
+📌 Requirements:
+
+Windows 10 or later
+
+Hyper-V or Docker Desktop installed (recommended driver is Docker)
+
+🔹 Useful Minikube Commands
+bash
+Copy
+Edit
+# Start cluster
+minikube start
+
+# Stop cluster
+minikube stop
+
+# Delete cluster
+minikube delete
+
+# Access dashboard
+minikube dashboard
+
+# Get cluster IP
+minikube ip
+✅ Now you have a local Kubernetes cluster running with Minikube.
+Next, proceed with Helm installation → Step 1: Install Helm.
+
+yaml
+Copy
+Edit
+
+---
+
+⚡ Do you also want me to **add screenshots** for Minikube installation (Linux & Windows) like you  
 
 Check cluster connection:
 
