@@ -45,6 +45,8 @@ Thousands of pre-built charts available (e.g., WordPress, MySQL, NGINX, Promethe
 ✅ CI/CD Friendly
 Integrates well with GitOps and automation pipelines (ArgoCD, Flux, Jenkins, GitHub Actions).
 
+---
+
 # 🚀 Helm Installation & Customization Guide
 
 This guide provides a **practical step-by-step workflow** for using Helm with Kubernetes:
