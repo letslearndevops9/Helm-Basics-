@@ -1,85 +1,92 @@
-# Helm-Basics-
+# Helm Basics
 
- 🎯 Why Helm?
+---
 
-Managing applications on Kubernetes can become complex:  
-- You often need to write multiple YAML manifests (Deployments, Services, ConfigMaps, Ingress, Secrets, etc.)  
-- Keeping track of versions, rollbacks, and upgrades is difficult  
-- Sharing applications across teams requires consistency  
+## 🎯 Why Helm?
 
-Helm solves these problems by acting as the **package manager for Kubernetes** (like `apt` for Ubuntu or `yum` for RHEL).
+Managing applications on Kubernetes can become complex:
+
+- You often need to write multiple YAML manifests (Deployments, Services, ConfigMaps, Ingress, Secrets, etc.)
+- Keeping track of versions, rollbacks, and upgrades is difficult
+- Sharing applications across teams requires consistency
+
+**Helm** solves these problems by acting as the **package manager for Kubernetes** (like `apt` for Ubuntu or `yum` for RHEL).
 
 ---
 
 ## 📖 What is Helm?
 
-Helm is a tool that helps you **define, install, and upgrade Kubernetes applications** using **Helm Charts**.  
-A **Helm Chart** is a pre-packaged collection of YAML files that describe a Kubernetes resource.
+Helm is a tool that helps you **define, install, and upgrade Kubernetes applications** using **Helm Charts**.
 
-- Instead of applying 10 different YAML files manually → you install one Helm chart.  
-- Instead of manually editing YAML for upgrades → you pass values and run `helm upgrade`.  
+A **Helm Chart** is a pre-packaged collection of YAML files that describe Kubernetes resources.
+
+- Instead of applying 10 different YAML files manually → you install one Helm chart.
+- Instead of manually editing YAML for upgrades → you pass values and run `helm upgrade`.
 
 ---
 
 ## ⚡ Benefits of Using Helm
 
-✅ **Simplifies Deployment**  
-No need to write huge YAML files – use charts with pre-defined templates.  
+- **Simplifies Deployment**  
+  No need to write huge YAML files – use charts with pre-defined templates.
 
-✅ **Reusability**  
-Charts can be reused across environments (dev, test, prod) with different `values.yaml`.  
+- **Reusability**  
+  Charts can be reused across environments (dev, test, prod) with different `values.yaml`.
 
-✅ **Version Control & Rollback**  
-Track release history and rollback easily with one command:  
-```bash
-helm rollback my-release 1
-✅ Customization with Values
-Easily override defaults using --set, --set-string, or -f custom-values.yaml.
+- **Version Control & Rollback**  
+  Track release history and rollback easily:
+  ```bash
+  helm rollback my-release 1
+  ```
 
-✅ Faster Team Collaboration
-Teams can share charts instead of raw YAMLs, ensuring consistent deployments.
+- **Customization with Values**  
+  Easily override defaults using `--set`, `--set-string`, or `-f custom-values.yaml`.
 
-✅ Large Ecosystem
-Thousands of pre-built charts available (e.g., WordPress, MySQL, NGINX, Prometheus, Grafana).
+- **Faster Team Collaboration**  
+  Teams can share charts instead of raw YAMLs, ensuring consistent deployments.
 
-✅ CI/CD Friendly
-Integrates well with GitOps and automation pipelines (ArgoCD, Flux, Jenkins, GitHub Actions).
+- **Large Ecosystem**  
+  Thousands of pre-built charts available (e.g., WordPress, MySQL, NGINX, Prometheus, Grafana).
+
+- **CI/CD Friendly**  
+  Integrates well with GitOps and automation pipelines (ArgoCD, Flux, Jenkins, GitHub Actions).
 
 ---
 
-## 🚀 Helm Installation & Customization Guide
+# 🚀 Helm Installation & Customization Guide
 
 This guide provides a **practical step-by-step workflow** for using Helm with Kubernetes:
 
-- Installing Helm  
-- Adding repositories  
-- Installing charts  
-- Passing custom values  
-- Upgrading & rolling back  
-- Uninstalling releases  
-- Creating your own Helm charts  
-
-Screenshots are provided from a real setup for clarity.
+- Installing Helm
+- Adding repositories
+- Installing charts
+- Passing custom values
+- Upgrading & rolling back
+- Uninstalling releases
+- Creating your own Helm charts
 
 ---
 
 ## 📖 Prerequisites
 
-Before starting, make sure you have:
+Make sure you have:
 
-- A Kubernetes cluster running (e.g., Minikube, AKS, EKS, GKE)  
-- `kubectl` installed and configured  
-- Internet access to fetch Helm charts 
+- A Kubernetes cluster running (e.g., Minikube, AKS, EKS, GKE)
+- `kubectl` installed and configured
+- Internet access to fetch Helm charts
 
 ---
 
 ## ⚙️ Step 0: Install Minikube (Kubernetes Cluster Setup)
 
-Before using Helm, you need a running Kubernetes cluster.  
-[Minikube](https://minikube.sigs.k8s.io/docs/start/) is the easiest way to create a local cluster for testing.  
+[Minikube](https://minikube.sigs.k8s.io/docs/start/) is the easiest way to create a local cluster for testing.
 
----
+### 🔹 Install Minikube on Linux
 
+1. **Download Minikube binary:**
+   ```bash
+   curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   ```
 ### 🔹 Install Minikube on Linux
 
 1. **Download Minikube binary:**
