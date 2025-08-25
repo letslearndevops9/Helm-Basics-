@@ -84,9 +84,7 @@ Next, proceed with Helm installation → Step 1: Install Helm.
 
 ⚡ Do you also want me to **add screenshots** for Minikube installation (Linux & Windows) like you  
 
-Check cluster connection:
 
-```bash
 kubectl get nodes
 ⚙️ Step 1: Install Helm
 Download and install Helm 3:
@@ -151,9 +149,7 @@ helm install wordpress-app bitnami/wordpress \
 🔹 Option B: Using a custom values.yaml
 Create custom-values.yaml:
 
-yaml
-Copy
-Edit
+
 wordpressUsername: admin
 wordpressPassword: Secret123
 mariadb:
@@ -161,9 +157,6 @@ mariadb:
     rootPassword: Secret123
 Then install with the file:
 
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress -f custom-values.yaml
 🔹 Option C: Using --set-string
 Sometimes values can be misinterpreted (like numbers being treated as integers, or true/false as booleans).
