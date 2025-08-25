@@ -47,7 +47,7 @@ Integrates well with GitOps and automation pipelines (ArgoCD, Flux, Jenkins, Git
 
 ---
 
-# 🚀 Helm Installation & Customization Guide
+## 🚀 Helm Installation & Customization Guide
 
 This guide provides a **practical step-by-step workflow** for using Helm with Kubernetes:
 
