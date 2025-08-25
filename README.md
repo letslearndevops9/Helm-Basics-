@@ -111,26 +111,6 @@ Check installed releases:
 
 helm list
 
-⚙️ Step 4: Pass Custom Values
-Helm allows overriding chart defaults.
-
-Option A: Inline values
-helm install wordpress-app bitnami/wordpress \
-  --set wordpressUsername=admin \
-  --set wordpressPassword=Secret123 \
-  --set mariadb.auth.rootPassword=Secret123
-
-Option B: Using a custom values.yaml
-Create custom-values.yaml:
-wordpressUsername: admin
-wordpressPassword: Secret123
-mariadb:
-  auth:
-    rootPassword: Secret123
-Then install:
-
-helm install wordpress-app bitnami/wordpress -f custom-values.yaml
-
 ## ⚙️ Step 4: Pass Custom Values
 
 Helm allows overriding chart defaults in **3 ways**:  
@@ -196,6 +176,7 @@ This securely passes the contents of db-password.txt as the value.
 
 👉 Do you also want me to add a **sample full `values.yaml`** (for WordPress or Nginx) so that user
 
+------
 
 ⚙️ Step 5: Upgrade a Release
 
@@ -212,11 +193,15 @@ Rollback if needed:
 
 helm rollback wordpress-app 1
 
+------
+
 ⚙️ Step 6: Uninstall a Release
 
 Remove WordPress from the cluster:
 
 helm uninstall wordpress-app
+
+------------------
 
 ⚙️ Step 7: Create Your Own Helm Chart
 
@@ -239,6 +224,8 @@ mychart/
 Install your custom chart:
 
 helm install myapp ./mychart
+
+-------------
 
 📂 Useful Helm Commands
 # List all installed releases across namespaces
