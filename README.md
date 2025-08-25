@@ -174,10 +174,6 @@ This securely passes the contents of db-password.txt as the value.
 
 ---
 
-👉 Do you also want me to add a **sample full `values.yaml`** (for WordPress or Nginx) so that user
-
-------
-
 ⚙️ Step 5: Upgrade a Release
 
 Modify configuration or update chart version:
