@@ -32,26 +32,15 @@ Before using Helm, you need a running Kubernetes cluster.
 ### 🔹 Install Minikube on Linux
 
 1. Download Minikube binary:
-```bash
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 
 Install to /usr/local/bin:
-
-bash
-Copy
-Edit
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
+
 Start a cluster:
-
-bash
-Copy
-Edit
 minikube start --driver=docker
-Verify:
+Verify: kubectl get nodes
 
-bash
-Copy
-Edit
-kubectl get nodes
 📌 By default, Minikube uses Docker as the driver, but you can also use VirtualBox, KVM, or others.
 
 🔹 Install Minikube on Windows
@@ -64,14 +53,9 @@ Run the installer (it will add minikube.exe to your PATH).
 Start a cluster from PowerShell (Run as Administrator):
 
 powershell
-Copy
-Edit
-minikube start --driver=docker
-Verify:
 
-powershell
-Copy
-Edit
+minikube start --driver=docker
+Verify: powershell
 kubectl get nodes
 📌 Requirements:
 
@@ -80,9 +64,6 @@ Windows 10 or later
 Hyper-V or Docker Desktop installed (recommended driver is Docker)
 
 🔹 Useful Minikube Commands
-bash
-Copy
-Edit
 # Start cluster
 minikube start
 
@@ -97,14 +78,9 @@ minikube dashboard
 
 # Get cluster IP
 minikube ip
+
 ✅ Now you have a local Kubernetes cluster running with Minikube.
 Next, proceed with Helm installation → Step 1: Install Helm.
-
-yaml
-Copy
-Edit
-
----
 
 ⚡ Do you also want me to **add screenshots** for Minikube installation (Linux & Windows) like you  
 
@@ -114,67 +90,40 @@ Check cluster connection:
 kubectl get nodes
 ⚙️ Step 1: Install Helm
 Download and install Helm 3:
-
-bash
-Copy
-Edit
 curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
 Verify installation:
-
-bash
-Copy
-Edit
 helm version
-
 
 ⚙️ Step 2: Add a Helm Repository
 Add the Bitnami repository (commonly used for production-ready charts):
 
-bash
-Copy
-Edit
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm repo update
 
-
 Check available charts:
-
-bash
-Copy
-Edit
 helm search repo bitnami
+
 ⚙️ Step 3: Install a Chart
 Install WordPress with default values:
 
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress
-
 
 Check installed releases:
 
-bash
-Copy
-Edit
 helm list
+
 ⚙️ Step 4: Pass Custom Values
 Helm allows overriding chart defaults.
 
 Option A: Inline values
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress \
   --set wordpressUsername=admin \
   --set wordpressPassword=Secret123 \
   --set mariadb.auth.rootPassword=Secret123
+
 Option B: Using a custom values.yaml
 Create custom-values.yaml:
-
-yaml
-Copy
-Edit
 wordpressUsername: admin
 wordpressPassword: Secret123
 mariadb:
@@ -182,9 +131,6 @@ mariadb:
     rootPassword: Secret123
 Then install:
 
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress -f custom-values.yaml
 
 ## ⚙️ Step 4: Pass Custom Values
@@ -223,11 +169,6 @@ helm install wordpress-app bitnami/wordpress -f custom-values.yaml
 Sometimes values can be misinterpreted (like numbers being treated as integers, or true/false as booleans).
 Use --set-string to force values to remain strings.
 
-Example:
-
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress \
   --set-string service.type="LoadBalancer" \
   --set-string replicaCount="3" \
@@ -239,35 +180,18 @@ If you have large secrets, TLS certs, or config files, you can inject them direc
 
 Example with config.yaml:
 
-yaml
-Copy
-Edit
 config:
   key1: value1
   key2: value2
 Command:
 
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress \
   --set-file config=./config.yaml
 Example with a secret file (db-password.txt):
 
-bash
-Copy
-Edit
 helm install wordpress-app bitnami/wordpress \
   --set-file mariadb.auth.rootPassword=./db-password.txt
 This securely passes the contents of db-password.txt as the value.
-
-
-
-yaml
-Copy
-Edit
-
----
 
 ✅ This way your documentation now covers **all methods of passing values**:  
 - `--set` (inline)  
@@ -284,37 +208,22 @@ Edit
 
 Modify configuration or update chart version:
 
-helm upgrade wordpress-app bitnami/wordpress -f custom-values.yaml
-
-
-📸 Screenshot:
+helm upgrade wordpress-app bitnami/wordpress -f custom-values.yam
 
 
 Check release history:
 
 helm history wordpress-app
 
-
-📸 Screenshot:
-
-
 Rollback if needed:
 
 helm rollback wordpress-app 1
-
-
-📸 Screenshot:
-
 
 ⚙️ Step 6: Uninstall a Release
 
 Remove WordPress from the cluster:
 
 helm uninstall wordpress-app
-
-
-📸 Screenshot:
-
 
 ⚙️ Step 7: Create Your Own Helm Chart
 
@@ -334,16 +243,9 @@ mychart/
   └── values.yaml
 
 
-📸 Screenshot:
-
-
 Install your custom chart:
 
 helm install myapp ./mychart
-
-
-📸 Screenshot:
-
 
 📂 Useful Helm Commands
 # List all installed releases across namespaces
