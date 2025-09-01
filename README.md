@@ -382,3 +382,5 @@ In this guide, we learned how to:
 ✔️ Create custom Helm charts  
 
 With Helm, managing Kubernetes applications becomes simpler, repeatable, and more reliable 🚀
+
+https://www.youtube.com/watch?v=WhqiF6hQ6L8
